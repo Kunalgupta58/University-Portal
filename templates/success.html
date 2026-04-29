@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - University Exam Form Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 24px;
+        }
+        .header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .btn-logout {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        .btn-logout:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .success-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+        .success-card h2 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        .success-card p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .form-details {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .form-details h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .form-details p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .form-details strong {
+            color: #333;
+        }
+        .btn-dashboard {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .btn-dashboard:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>University Exam Form Portal</h1>
+        <div class="user-info">
+            <span>Welcome, {{ user.username }}</span>
+            <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="success-card">
+            <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+            </div>
+            <h2>Form Submitted Successfully!</h2>
+            <p>Your exam form has been saved successfully.</p>
+            
+            <div class="form-details">
+                <h3>Submitted Information:</h3>
+                <p><strong>Full Name:</strong> {{ form.full_name }}</p>
+                <p><strong>Course:</strong> {{ form.course }}</p>
+                <p><strong>Year:</strong> {{ form.year }}</p>
+                <p><strong>Address:</strong> {{ form.address }}</p>
+                <p><strong>Phone Number:</strong> {{ form.phone_number }}</p>
+            </div>
+            
+            <a href="{% url 'dashboard' %}" class="btn-dashboard">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
